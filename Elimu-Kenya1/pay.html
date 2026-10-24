@@ -1,0 +1,36 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"/><title>Pay processing fee | Elimu Kenya</title><link rel="icon" type="image/svg+xml" href="favicon.svg"/><meta name="theme-color" content="#ce182c"/><link rel="stylesheet" href="styles.css"/></head><body>
+<header><a class="brand" href="index.html"><img class="logo" src="favicon.svg" alt="" width="40" height="40"/><span>ELIMU KENYA<small>BURSARY FOR LEARNERS</small></span></a><div class="bell-wrap"><button class="bell" id="bell" aria-label="Notifications" aria-expanded="false">🔔<i id="dot" hidden></i></button><div class="notes" id="notes" hidden><b>Notifications</b><p id="notesEmpty">No notifications yet.</p><ul id="noteList"></ul></div></div></header>
+<main class="pay section"><a class="text-button" href="index.html">← Home</a>
+<ol class="trail"><li class="done">About the bursary</li><li class="done">Your details</li><li class="on">Pay processing fee</li></ol>
+<div id="noApp" hidden><h1 class="pt">No application found.</h1><p>Start your application first.</p><a class="button" href="apply.html">Apply for bursary</a></div>
+<div id="payView" hidden>
+<p class="eyebrow red">LAST STEP</p><h1 class="pt">Review your payment.</h1>
+<p class="payment-intro">Check your proposed award and the separate application fee before choosing a payment method.</p><div class="payment-disclosure" id="paymentDisclosure" role="status"></div><div class="sum"><div><span>Reference</span><b id="sRef"></b></div><div><span>Proposed bursary award</span><b id="sAmt"></b></div><div class="due"><span>Processing fee to pay now</span><b id="sFee"></b></div></div>
+<h2 class="h2s">Choose how to pay</h2>
+<div class="methods">
+<button type="button" aria-pressed="false" class="method" data-ready="0" data-m="ecitizen"><span class="ml"><img src="assets/pay-ecitizen.jpg" alt="eCitizen"/></span><b>eCitizen</b></button>
+<button type="button" aria-pressed="false" class="method" data-ready="0" data-m="kcb"><span class="ml"><img src="assets/pay-kcb.jpg" alt="KCB Bank"/></span><b>KCB Bank</b></button>
+<button type="button" aria-pressed="false" class="method" data-ready="0" data-m="equity"><span class="ml"><img src="assets/pay-equity.jpg" alt="Equity Bank"/></span><b>Equity Bank</b></button>
+<button type="button" aria-pressed="false" class="method" data-ready="1" data-m="send"><span class="ml"><svg viewBox="0 0 120 56" role="img" aria-label="M-Pesa"><rect width="120" height="56" rx="10" fill="#43b02a"/><text x="60" y="35" text-anchor="middle" font-family="Arial" font-weight="800" font-size="22" fill="#fff">M-PESA</text></svg></span><b>Send money</b></button>
+</div>
+<section id="sendPanel" class="sendp"><h2 class="h2s">Manual M-Pesa payment guide</h2>
+<p class="manual-notice" id="manualNotice">This simple manual payment guide helps you send the processing fee to receive your bursary. Before you send money, check the recipient's name on your phone. Never enter or share your M-Pesa PIN on this website.</p><ol class="msteps"><li>Open <b>M-Pesa</b> on your phone.</li><li>Choose <b>Send money</b>.</li><li>Enter the number <span class="copy-num"><b class="num" id="payToNum">0732532860</b><button type="button" class="copy-btn" id="copyNum" aria-label="Copy M-Pesa number">Copy number</button></span>.</li><li>Enter the amount <b class="num" id="stAmt"></b>.</li><li>Enter your <b>M-Pesa PIN</b> and send.</li></ol>
+<form id="payForm">
+<div class="sms-instructions" role="note">
+<b>Read before you paste your M-Pesa message</b>
+<ul>
+<li>Copy and paste the <b>whole</b> M-Pesa message exactly as it appears on your phone.</li>
+<li><b>Do not crop</b> the message.</li>
+<li><b>Do not edit</b> any word, number or punctuation in the message.</li>
+<li>Our system checks every character. If it detects cropping, editing or a fake message, <b>you will be banned from getting this bursary</b>.</li>
+</ul>
+</div>
+<p class="hint">Paste the full M-Pesa confirmation SMS below, then enter the phone number you paid from.</p>
+<div class="form-grid"><label>Full M-Pesa message<textarea id="smsMessage" name="smsMessage" rows="8" maxlength="1000" wrap="soft" required autocomplete="off" placeholder="Paste the full M-Pesa SMS here. Do not crop or edit."></textarea></label><label>Phone you paid from<input id="payPhone" type="tel" required pattern="[+]?[0-9 \(\)\-]{9,20}"/></label></div><p id="payStatus" role="status"></p><button class="button" id="payBtn" type="submit">Verify payment</button></form></section>
+<section id="waitView" class="sendp" hidden><div class="spin"></div><h2 class="h2s">Verifying your payment.</h2><p>This can take a few minutes. Keep this page open. You will get a notification as soon as it is confirmed.</p></section>
+</div>
+<section id="doneView" class="done-card" hidden><span class="success-icon">✓</span><h1 class="pt">You have successfully applied.</h1><p>Your payment is confirmed and your bursary application is now submitted. We will contact you on your phone and email about the next steps.</p><div class="sum"><div><span>Reference</span><b id="dRef"></b></div><div><span>Bursary amount</span><b id="dAmt"></b></div></div><button class="button" onclick="window.print()">Print receipt</button> <a class="text-button" href="index.html">Back to website →</a></section>
+</main>
+<div class="method-notice" id="toast" role="status" hidden><button aria-label="Close" id="toastX">×</button><b>Payment method unavailable</b><p id="methodMessage"></p></div>
+<div class="toast ok" id="okToast" role="status" hidden><b>✓ Application successful</b><p>Your payment is confirmed. You have successfully applied.</p></div>
+<script src="config.js"></script><script src="pay.js"></script></body></html>

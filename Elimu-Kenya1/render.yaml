@@ -1,0 +1,17 @@
+# Render Static Site (no web service, no server, no build step).
+services:
+  - type: web
+    runtime: static
+    name: elimu-kenya
+    buildCommand: echo "Static site, nothing to build"
+    staticPublishPath: .
+    headers:
+      - path: /*
+        name: X-Content-Type-Options
+        value: nosniff
+      - path: /*
+        name: X-Frame-Options
+        value: DENY
+      - path: /*
+        name: Referrer-Policy
+        value: strict-origin-when-cross-origin
